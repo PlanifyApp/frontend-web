@@ -5,6 +5,7 @@ import router from './router'
 import "./css/main.css"
 import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
+import { appFirebase } from './connection/FirebaseConnection'
 
 const app = createApp(App);
 // app.use(store);
