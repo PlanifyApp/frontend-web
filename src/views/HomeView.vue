@@ -1,10 +1,10 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <!-- Esta vista va a ser de pruebas para los componentes creados -->
+  <div>
+    alo buenas, me chupan la monda todos.
   </div>
 </template>
 
 <script lang="ts" setup>
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+
 </script>
