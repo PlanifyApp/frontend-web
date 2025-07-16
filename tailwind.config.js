@@ -9,10 +9,12 @@ module.exports = {
         primary: "#007DC3",
         secondary: "#464646",
         tertiary: "#F1632A",
+        'primary-hover': "#007DC378",
+        'dark-blue': "#0169A4",
       },
-    },
-    maxWidth: {
-      '85vw': '85vw'
+      fontFamily: {
+        sans: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],
