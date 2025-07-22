@@ -13,13 +13,13 @@
     EL de arriba me chupa la chupa
   </div>
   <div>
-    <Checkbox v-model="checkbox1" label="Aceptar términos" type="primary" />
+    <Checkbox v-model="checkbox1" type="primary" />
     <Checkbox v-model="checkbox2" label="Recibir correos" type="secondary" />
   </div>
 
   <div class="tw-mt-4 tw-space-y-2">
     <h2 class="tw-font-bold">Radio Buttons</h2>
-    <RadioButton v-model="seleccion" value="opcion1" label="Opción 1" />
+    <RadioButton v-model="seleccion" value="opcion1" />
     <RadioButton v-model="seleccion" value="opcion2" label="Opción 2" />
 
      <div class="tw-space-y-2">
@@ -32,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from 'vue';
 import Button from "@/components/shared/Button/Button.vue";
 import RadioButton from "@/components/shared/RadioButton/RadioButton.vue";
 import Chip from "@/components/shared/ChipButton/Chip.vue";
@@ -52,4 +52,10 @@ const chipOptions: ChipOption[] = [
 
 const checkbox1 = ref(false);
 const checkbox2 = ref(true);
+
+watch(seleccion, (val) => {
+  console.log('Chip selection changed:', val);
+});
+
+
 </script>
