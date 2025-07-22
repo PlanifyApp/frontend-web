@@ -1,10 +1,20 @@
 <template>
-  <!-- Esta vista va a ser de pruebas para los componentes creados -->
-  <div>alo buenas, me chupan la monda todos.</div>
+<!-- Esta vista va a ser de pruebas para los componentes creados -->
+  <div>
+    alo buenas, me chupan la monda todos.
+  </div>
   <div class="tw-w-56">
     <Button label="Guardar" type="primary" />
     <Button label="Cancelar" type="secondary" icon="times" icon-pos="right" />
     <Button label="Eliminar" type="tertiary" icon="trash" />
+  </div>
+
+  <div>
+    EL de arriba me chupa la chupa
+  </div>
+  <div>
+    <Checkbox v-model="checkbox1" label="Aceptar términos" type="primary" />
+    <Checkbox v-model="checkbox2" label="Recibir correos" type="secondary" />
   </div>
 
   <div class="tw-mt-4 tw-space-y-2">
@@ -21,7 +31,7 @@
   </div>
 </template>
 
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import Button from "@/components/shared/Button/Button.vue";
 import RadioButton from "@/components/shared/Button/RadioButton/RadioButton.vue";
@@ -36,4 +46,9 @@ const chipOptions: ChipOption[] = [
   { label: "Yes", value: "yes", icon: "✓", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
   { label: "No", value: "no", icon: "✕", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
 ];
+import Checkbox from '@/components/shared/Checkbox/Checkbox.vue';
+import { ref } from 'vue';
+
+const checkbox1 = ref(false);
+const checkbox2 = ref(true);
 </script>
