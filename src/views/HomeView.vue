@@ -34,9 +34,10 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Button from "@/components/shared/Button/Button.vue";
-import RadioButton from "@/components/shared/Button/RadioButton/RadioButton.vue";
-import Chip from "@/components/shared/Button/ChipButton/Chip.vue";
-import type { ChipOption } from "@/components/shared/ChipButton/Chip.types";
+import RadioButton from "@/components/shared/RadioButton/RadioButton.vue";
+import Chip from "@/components/shared/ChipButton/Chip.vue";
+import Checkbox from '@/components/shared/Checkbox/Checkbox.vue';
+import { ChipOption } from "@/components/shared/ChipButton/Chip.types";
 
 const seleccion = ref("");
 
@@ -46,8 +47,8 @@ const chipOptions: ChipOption[] = [
   { label: "Yes", value: "yes", icon: "✓", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
   { label: "No", value: "no", icon: "✕", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
 ];
-import Checkbox from '@/components/shared/Checkbox/Checkbox.vue';
-import { ref } from 'vue';
+
+
 
 const checkbox1 = ref(false);
 const checkbox2 = ref(true);
