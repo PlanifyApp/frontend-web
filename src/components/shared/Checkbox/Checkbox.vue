@@ -35,5 +35,10 @@ watch(internalValue, (val) => {
 const { checkboxClass } = useCheckbox(props);
 const classes = checkboxClass();
 </script>
+<style>
+.p-checkbox-box{
+  background-color: transparent !important;
+}
+</style>
 
 
