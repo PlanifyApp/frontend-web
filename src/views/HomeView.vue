@@ -1,8 +1,9 @@
 <template>
-<!-- Esta vista va a ser de pruebas para los componentes creados -->
+  <!-- Esta vista va a ser de pruebas para los componentes creados -->
   <div>
     alo buenas, me chupan la monda todos.
   </div>
+
   <div class="tw-w-56">
     <Button label="Guardar" type="primary" />
     <Button label="Cancelar" type="secondary" icon="times" icon-pos="right" />
@@ -12,6 +13,7 @@
   <div>
     EL de arriba me chupa la chupa
   </div>
+
   <div>
     <Checkbox v-model="checkbox1" type="primary" />
     <Checkbox v-model="checkbox2" label="Recibir correos" type="secondary" />
@@ -29,14 +31,19 @@
     </div>
 
   </div>
+
+  <div class="tw-mt-4">
+    <Switch v-model="switchValue" type="primary" />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref,watch } from 'vue';
 import Button from "@/components/shared/Button/Button.vue";
 import RadioButton from "@/components/shared/RadioButton/RadioButton.vue";
 import Chip from "@/components/shared/ChipButton/Chip.vue";
 import Checkbox from '@/components/shared/Checkbox/Checkbox.vue';
+import Switch from '@/components/shared/Switch/Switch.vue';
 import { ChipOption } from "@/components/shared/ChipButton/Chip.types";
 
 const seleccion = ref("");
@@ -47,15 +54,7 @@ const chipOptions: ChipOption[] = [
   { label: "Yes", value: "yes", icon: "✓", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
   { label: "No", value: "no", icon: "✕", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
 ];
-
-
-
 const checkbox1 = ref(false);
 const checkbox2 = ref(true);
-
-watch(seleccion, (val) => {
-  console.log('Chip selection changed:', val);
-});
-
-
+const switchValue = ref(false);
 </script>
