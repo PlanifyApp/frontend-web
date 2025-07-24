@@ -2,9 +2,7 @@
   <ToggleSwitch
     v-model="model"
     :disabled="props.disabled"
-    :class="{
-        'tw-bg-primary-500': model,
-    }"
+    class=""
   />
 </template>
 
@@ -35,7 +33,7 @@ const classes = switchClass;
 </script>
 
 <style>
-.p-inputswitch {
-  background-color: transparent !important;
+.p-toggleswitch.p-toggleswitch-checked .p-toggleswitch-slider {
+  background-color: #007DC3 !important;
 }
 </style>
