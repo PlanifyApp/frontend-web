@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import PrimeCheckbox from "primevue/checkbox";
 import { ref, watch } from "vue";
-import type { CheckboxProps } from "./CheckboxProps.js";
+import type { CheckboxProps } from "./CheckboxProps";
 import { useCheckbox } from "./useCheckbox";
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
@@ -28,17 +28,18 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
 const emit = defineEmits(["update:modelValue"]);
 const internalValue = ref(props.modelValue);
 
+// Emitir cambios al componente padre
 watch(internalValue, (val) => {
   emit("update:modelValue", val);
 });
 
+// Obtener clases desde el composable
 const { checkboxClass } = useCheckbox(props);
 const classes = checkboxClass();
 </script>
+
 <style>
 .p-checkbox-box{
   background-color: transparent !important;
 }
 </style>
-
-

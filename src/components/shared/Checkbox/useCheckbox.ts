@@ -1,27 +1,27 @@
-import type { CheckboxProps } from './CheckboxProps.ts';
+import type { CheckboxProps } from './CheckboxProps';
 
 export const useCheckbox = (props: CheckboxProps) => {
   const checkboxClass = () => {
-    let baseClass = 'tw-flex tw-items-center tw-gap-2';
-    let boxClass = 'tw-w-5 tw-h-5 tw-rounded tw-border tw-border-gray-300 tw-flex tw-items-center tw-justify-center';
-    let checkedClass = '';
+    const wrapper = 'tw-flex tw-items-center tw-gap-2';
+
+    const box =
+      'tw-w-5 tw-h-5 tw-rounded tw-border tw-border-gray-300 ' +
+      'tw-flex tw-items-center tw-justify-center';
+
+    let checked = '';
 
     switch (props.type) {
       case 'primary':
-        checkedClass = 'tw-bg-primary tw-border-primary tw-text-white';
+        checked = 'tw-bg-primary tw-border-primary tw-text-white';
         break;
       case 'secondary':
-        checkedClass = 'tw-bg-gray-200 tw-border-gray-400 tw-text-black';
+        checked = 'tw-bg-gray-200 tw-border-gray-400 tw-text-black';
         break;
       default:
-        checkedClass = '';
+        checked = '';
     }
 
-    return {
-      wrapper: baseClass,
-      box: boxClass,
-      checked: checkedClass,
-    };
+    return { wrapper, box, checked };
   };
 
   return { checkboxClass };
