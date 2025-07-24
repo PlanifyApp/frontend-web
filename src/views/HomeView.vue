@@ -20,7 +20,7 @@
   <div class="tw-mt-4 tw-space-y-2">
     <h2 class="tw-font-bold">Radio Buttons</h2>
     <RadioButton v-model="seleccion" value="opcion1" />
-    <RadioButton v-model="seleccion" value="opcion2" label="Opción 2" />
+    <RadioButton v-model="seleccion" value="opcion2" />
 
      <div class="tw-space-y-2">
       <h2 class="tw-font-bold">Chip Selector</h2>
@@ -44,11 +44,9 @@ const seleccion = ref("");
 const chipSeleccion = ref("yes");
 
 const chipOptions: ChipOption[] = [
-  { label: "Yes", value: "yes", icon: "✓", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
-  { label: "No", value: "no", icon: "✕", activeClass: "tw-border tw-rounded tw-h-[100] tw-w-[60px] " },
+  { label: "Yes", value: "yes", icon: "✓", activeClass: "!tw-bg-primary tw-border tw-rounded tw-h-[120] tw-w-[80px] " },
+  { label: "No", value: "no", icon: "✕", activeClass: "!tw-bg-primary tw-border tw-rounded tw-h-[120] tw-w-[80px] ", },
 ];
-
-
 
 const checkbox1 = ref(false);
 const checkbox2 = ref(true);
@@ -56,6 +54,4 @@ const checkbox2 = ref(true);
 watch(seleccion, (val) => {
   console.log('Chip selection changed:', val);
 });
-
-
 </script>

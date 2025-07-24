@@ -3,4 +3,5 @@ export interface ChipOption {
   value: string
   icon?: string
   activeClass?: string
+  inactiveClass?: string
 }
