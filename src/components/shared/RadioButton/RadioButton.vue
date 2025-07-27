@@ -21,12 +21,6 @@ const props = withDefaults(defineProps<RadioButtonProps>(), {
 });
 
 defineEmits(['update:modelValue']);
-
-
-
-// const radioClass = () => {
-//     // return 'tw-flex tw-items-center tw-border tw-border-dashed tw-p-2 tw-rounded';
-// }
 </script>
 <style>
 .p-radiobutton-box {

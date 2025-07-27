@@ -1,38 +1,47 @@
 <template>
-  <div class="flex gap-2 border-2 border-dashed border-orange-500 p-2 rounded-md">
-    <button
-      v-for="option in options"
-      :key="option.value"
-      @click="select(option.value)"
-      :class="[
-        'flex items-center gap-1 px-4 py-1.5 rounded-md text-white font-medium transition',
-        modelValue === option.value ? option.activeClass ?? 'bg-blue-600' : 'bg-gray-400'
-      ]"
-    >
-      <span v-if="option.icon">{{ option.icon }}</span>
-      <span>{{ option.label }}</span>
-    </button>
-  </div>
+  <Chip
+    :label="props.label"
+    :icon="props.icon ? `pi pi-${props.icon}` : undefined"
+    :value="props.value"
+    :select="props.select"
+    :disabled="props.disabled"
+    :class="chipClass"
+    class="!tw-bg-primary !tw-text-white"
+    :pt="{
+      root:{
+        style: iconColor,
+      }
+    }"
+  />
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, watch } from 'vue'
-import type { ChipOption } from './Chip.types'
-import { useChip } from './useChip'
+import { ChipProps } from "./Chip";
+import Chip from 'primevue/chip';
+import { useChip } from "./useChip";
 
-const props = defineProps<{
-  modelValue: string
-  options: ChipOption[]
-}>()
 
-const emit = defineEmits(['update:modelValue'])
+const props = withDefaults(defineProps<ChipProps>(), {
+  label: "",
+  icon: undefined,
+  value: "",
+  select: undefined,
+  type: "primary",
+  disabled: false,
+});
 
-const { selected, select } = useChip(props.options, props.modelValue)
+const { chipClass, iconColor } = useChip(props);
 
-watch(selected, (val) => emit('update:modelValue', val))
-watch(() => props.modelValue, (val) => {
-  if (val !== selected.value) {
-    select(val)
-  }
-})
 </script>
+
+<style>
+ /* .p-chip {
+  background-color: transparent !important;
+  color: white !important;
+} */
+
+/* span.p-chip-icon {
+  color: white !important;
+} */
+
+</style>
