@@ -1,63 +1,47 @@
 <template>
-  <div class="tw-flex tw-gap-3 tw-p-2 tw-rounded-md">
-    <button
-      v-for="option in options"
-      :key="option.value"
-      @click="select(option.value)"
-      :class="[
-        'tw-flex tw-items-center tw-gap-3 tw-px-4 tw-py-1.5 tw-rounded-md tw-font-medium tw-transition tw-text-white',
-        modelValue === option.value
-          ? option.activeClass ?? 'tw-bg-primary'
-          : option.inactiveClass ?? 'tw-bg-quaternary',
-      ]"
-    >
-      <span v-if="option.icon">{{ option.icon }}</span>
-      <span>{{ option.label }}</span>
-    </button>
-  </div>
+  <Chip
+    :label="props.label"
+    :icon="props.icon ? `pi pi-${props.icon}` : undefined"
+    :value="props.value"
+    :select="props.select"
+    :disabled="props.disabled"
+    :class="chipClass"
+    class="!tw-bg-primary !tw-text-white"
+    :pt="{
+      root:{
+        style: iconColor,
+      }
+    }"
+  />
 </template>
 
 <script lang="ts" setup>
-import { defineProps, defineEmits, watch } from "vue";
-import { ChipOption } from "./Chip.types";
+import { ChipProps } from "./Chip";
+import Chip from 'primevue/chip';
 import { useChip } from "./useChip";
 
-const props = defineProps<{
-  modelValue: string;
-  options: ChipOption[];
-}>();
 
-const emit = defineEmits(["update:modelValue"]);
+const props = withDefaults(defineProps<ChipProps>(), {
+  label: "",
+  icon: undefined,
+  value: "",
+  select: undefined,
+  type: "primary",
+  disabled: false,
+});
 
-const { selected, select } = useChip(props.options, props.modelValue);
+const { chipClass, iconColor } = useChip(props);
 
-watch(selected, (val) => emit("update:modelValue", val));
-watch(
-  () => props.modelValue,
-  (val) => {
-    if (val !== selected.value) {
-      select(val);
-    }
-  }
-);
 </script>
 
 <style>
-/* .chip-activo {
-  --p-chip-background: #2563EB;
-  --p-chip-color: #FFFFFF;
-  transition: all 0.3s ease;
-}
-
-.chip-inactivo {
-  --p-chip-background: #9CA3AF;
-  --p-chip-color: #FFFFFF;
-  transition: all 0.3s ease;
-}
-
-.chip-activo:hover,
-.chip-inactivo:hover {
-  opacity: 0.85;
-  cursor: pointer;
+ /* .p-chip {
+  background-color: transparent !important;
+  color: white !important;
 } */
+
+/* span.p-chip-icon {
+  color: white !important;
+} */
+
 </style>
