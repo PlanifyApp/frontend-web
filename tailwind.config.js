@@ -10,6 +10,7 @@ module.exports = {
         secondary: "#464646",
         'secondary-active' : "#4646461A",
         tertiary: "#F1632A",
+        quaternary: "#B7B7B7",
         'primary-hover': "#007DC378",
         'dark-blue': "#0169A4",
       },
