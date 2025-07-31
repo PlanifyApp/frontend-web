@@ -13,6 +13,7 @@ module.exports = {
         quaternary: "#B7B7B7",
         'primary-hover': "#007DC378",
         'dark-blue': "#0169A4",
+        fondoPrincipal : "#F6F6F5"
       },
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
