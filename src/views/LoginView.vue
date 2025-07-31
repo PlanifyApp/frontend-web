@@ -27,14 +27,14 @@
           label="Correo"
           placeholder="Ingrese el correo"
           type="email"
-          v-model="email"
+          value="email"
         />
 
         <InputText
           label="Contraseña"
           placeholder="Ingrese la Contraseña"
           type="password"
-          v-model="password"
+          value="password"
         />
 
         <div class="tw-text-center">
